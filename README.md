@@ -4,7 +4,7 @@ The Transformer implemented in this repo is a Decoder only transformer which use
 
 Apart from the Transformer implementation, the repo also includes other modules which will be a requirement for building a base language model end to end.
 
-`Inspired from @karpathy nanogpt implementation`
+Inspired from @karpathy nanogpt implementation
 
 ## Module: Tokenizer
 
