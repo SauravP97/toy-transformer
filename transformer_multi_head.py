@@ -1,7 +1,6 @@
 """Transformer Head architecture."""
 
 import torch.nn as nn
-import torch.nn.functional as F
 import torch
 
 from transformer_head import Head
