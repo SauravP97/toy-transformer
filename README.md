@@ -20,6 +20,8 @@ Inspired from [@karpathy](https://github.com/karpathy)'s nanogpt implementation 
 
 > This repo also supports training the model on a `GPU` (***if you want***). The repo internally implements the logic to move the model parameters and the training dataset to the currently enabled device and runs on it. Meaning if you have a CPU it runs on it, if you have a GPU it seamlessly flies on it!
 
+<img src="./media/predicted-and-epoch-loss.png" width="900" alt="Alt text description">
+
 ## Training and Inference with Transformer model
 
 This repo enables you to train your own block of text data on a decoder-only transformer model and run predictions on your machine. You do not need a GPU to run training iterations and inference (predictions) using this report but can still get a gist of how the transformer model works.
