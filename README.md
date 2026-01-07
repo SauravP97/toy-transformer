@@ -64,6 +64,10 @@ training_loss, validation_loss = trainer.execute_training_loop()
 
 Once this step is completed, you have a mini **Base Language Model** with yourself!
 
+If you follow the above steps for Shakespeare text block and run `10,000` training iterations, then model wold generate text blocks like these.
+
+<img src="./media/predicted-text-block.png" width="600" alt="Loss Epochs">
+
 ### Step 3: Perform Inference (Predictions)
 
 Since, you have a trained Transformer model now, you can start generating data from it. It's a base language model which is an auto-complete engine. Meaning you provide it with some characters to start with, and it will generate characters moving forward.
