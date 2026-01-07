@@ -8,9 +8,11 @@ If you want to get straight to the show, clone this repo and run the below comma
 python main.py
 ```
 
+<img src="./media/toy-transformer.png" width="500" alt="Alt text description">
+
 ## Introduction
 
-The Transformer implemented in this repo is a Decoder only transformer which uses masked attention. Meaning the tokens in the training phase do not see the tokens in the future by implementing a masked attention block.
+The Transformer implemented in this repo is a [Decoder-only](https://cameronrwolfe.substack.com/p/decoder-only-transformers-the-workhorse) transformer which uses masked attention. Meaning the tokens in the training phase do not see the tokens in the future by implementing a masked attention block.
 
 Apart from the Transformer implementation, the repo also includes other modules which will be a requirement for building a base language model end to end.
 
