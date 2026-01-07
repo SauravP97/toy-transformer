@@ -22,7 +22,7 @@ Inspired from [@karpathy](https://github.com/karpathy)'s nanogpt implementation 
 
 Below is the glimpse of Training and Validation loss curve over `10,000` iterations.
 
-<img src="./media/loss-epochs.png" width="500" alt="Loss Epochs">
+<img src="./media/loss-epochs.png" width="600" alt="Loss Epochs">
 
 ## Training and Inference with Transformer model
 
