@@ -20,7 +20,9 @@ Inspired from [@karpathy](https://github.com/karpathy)'s nanogpt implementation 
 
 > This repo also supports training the model on a `GPU` (***if you want***). The repo internally implements the logic to move the model parameters and the training dataset to the currently enabled device and runs on it. Meaning if you have a CPU it runs on it, if you have a GPU it seamlessly flies on it!
 
-<img src="./media/predicted-and-epoch-loss.png" width="900" alt="Alt text description">
+Below is the glimpse of Training and Validation loss curve over `10,000` iterations.
+
+<img src="./media/loss-epochs.png" width="500" alt="Loss Epochs">
 
 ## Training and Inference with Transformer model
 
