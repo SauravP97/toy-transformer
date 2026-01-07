@@ -79,7 +79,7 @@ predicted_tokens = trainer.generate(2000)
 predicted_text = tokenizer.decode(predicted_tokens, stringify=True)
 ```
 
-If you follow the above steps for Shakespeare text block and run `10,000` training iterations, then model wold generate text blocks like these.
+If you follow the above steps for Shakespeare text block and run `10,000` training iterations, then model would generate text blocks like these.
 
 <img src="./media/predicted-text-block.png" width="600" alt="Loss Epochs">
 
