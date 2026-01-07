@@ -17,7 +17,7 @@ trainer = Trainer(
     vocab_size=tokenizer.vocab_size,
     n_head=4,
     n_layer=4,
-    max_iterations=3000,
+    max_iterations=10000,
     learning_rate=1e-3,
     eval_interval=500,
 )
