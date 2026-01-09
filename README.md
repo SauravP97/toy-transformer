@@ -4,7 +4,7 @@ A toy [Transformer](https://en.wikipedia.org/wiki/Transformer_(deep_learning)) m
 
 If you want to get straight to the show, clone this repo and run the below command to train the transformer model on a block of text (documenting the work of Shakespeare) and let the model generate more content afterwards (given you have [Pytorch](https://pytorch.org/) library installed).
 
-```
+```python
 python main.py
 ```
 
@@ -32,7 +32,7 @@ This repo enables you to train your own block of text data on a decoder-only tra
 
 The below 2 lines of code takes in your text block and tokenize them through a character level tokenizer.
 
-```
+```python
 tokenizer = Tokenizer(dataset_path="<path-to-your-text-block>")
 tokenized_dataset = tokenizer.get_encoded_dataset()
 ```
@@ -45,7 +45,7 @@ The `max_iterations` parameter decides how many training iterations will the mod
 
 At the end of the Training process, you will receive the final Training and Validation Loss. The Validation loss tells you how your trained model is doing on the unseen data. Below we set `train_test_split` parameter to **0.9**, that reserves **10%** of the tokenized dataset to be used as validation set.
 
-```
+```python
 trainer = Trainer(
     batch_size=16,
     block_size=32,
@@ -74,7 +74,7 @@ You can pass the number of tokens you want the model to generate. In the below s
 
 The model sees and understands tokenized data which can be hard for humans to interpret. Hence, once we get the predicted tokens, we will use the same Tokenizer to decode and get the original text back and understand the predicted text block.
 
-```
+```python
 predicted_tokens = trainer.generate(2000)
 predicted_text = tokenizer.decode(predicted_tokens, stringify=True)
 ```
@@ -96,7 +96,7 @@ The `Tokenizer` class capable of taking a parent dataset and tokenize a stream o
 
 ### Codeblock:
 
-```
+```python
 tokenizer = Tokenizer(dataset_path='./dataset/shakespear-text.txt')
 dataset = tokenizer.get_dataset()
 
@@ -137,7 +137,7 @@ Trainer module can be used to get the train-test split for a provided split valu
 
 ### Codeblock
 
-```
+```python
 trainer = Trainer(
     batch_size=3, block_size=8, train_test_split=0.9, data=tokenizer.encode(dataset)
 )
