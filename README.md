@@ -1,6 +1,6 @@
 # Toy-Transformer (decoder-only) :snowman:
 
-A toy [Transformer](https://en.wikipedia.org/wiki/Transformer_(deep_learning)) model implementation from scratch! If you have a block of text on which you want to train a transformer model and let the model generate text afterwards, then you can use this repo to achieve all of it on your local machine without a GPU.
+A toy [Transformer](https://en.wikipedia.org/wiki/Transformer_(deep_learning)) model (0.21M parameters)implementation from scratch! If you have a block of text on which you want to train a transformer model and let the model generate text afterwards, then you can use this repo to achieve all of it on your local machine without a GPU.
 
 If you want to get straight to the show, clone this repo and run the below command to train the transformer model on a block of text (documenting the work of Shakespeare) and let the model generate more content afterwards (given you have [Pytorch](https://pytorch.org/) library installed).
 
@@ -23,6 +23,7 @@ Inspired from [@karpathy](https://github.com/karpathy)'s nanogpt implementation 
 ### Model Architecture
 
 #### Details:
+  - Size = 209,729 parameters (0.21M)
   - Number of Heads (per Attention block) = 4
   - Embedding Dimension = 64
   - Number of Attention Blocks (sequential) = 4
@@ -74,7 +75,7 @@ trainer = Trainer(
 training_loss, validation_loss = trainer.execute_training_loop()
 ```
 
-Once this step is completed, you have a mini **Base Language Model** with yourself!
+Once this step is completed, you have a mini **Base Language Model** (0.21M parameters) with yourself!
 
 ### :small_blue_diamond: Step 3: Perform Inference (Predictions)
 

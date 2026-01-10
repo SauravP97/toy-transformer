@@ -22,6 +22,12 @@ trainer = Trainer(
     eval_interval=500,
 )
 
+print(
+    sum(parameter.numel() for parameter in trainer.transformer_model.parameters())
+    / 1e6,
+    " M parameters",
+)
+
 training_loss, validation_loss = trainer.execute_training_loop()
 print(f"\nFinal Training Loss: {training_loss}")
 print(f"Final Validation Loss: {validation_loss}")
