@@ -36,11 +36,11 @@ Below is the glimpse of Training and Validation loss curve over `10,000` iterati
 
 <img src="./media/loss-epochs.png" width="600" alt="Loss Epochs">
 
-## Training and Inference with Transformer model
+## :small_orange_diamond: Training and Inference with Transformer model
 
 This repo enables you to train your own block of text data on a decoder-only transformer model and run predictions on your machine. You do not need a GPU to run training iterations and inference (predictions) using this report but can still get a gist of how the transformer model works.
 
-### Step 1: Tokenize your dataset before feeding it to the Transformer model.
+### :small_blue_diamond: Step 1: Tokenize your dataset before feeding it to the Transformer model.
 
 The below 2 lines of code takes in your text block and tokenize them through a character level tokenizer.
 
@@ -49,7 +49,7 @@ tokenizer = Tokenizer(dataset_path="<path-to-your-text-block>")
 tokenized_dataset = tokenizer.get_encoded_dataset()
 ```
 
-### Step 2: Run the training iterations
+### :small_blue_diamond: Step 2: Run the training iterations
 
 The below 2 lines of code Trains the model on previously tokenized dataset (in Step 1). You can tune multiple parameters below however you like. If you're a beginner and wants to just see the model in action, keeping the below parameters as it is should be okay.
 
@@ -76,7 +76,7 @@ training_loss, validation_loss = trainer.execute_training_loop()
 
 Once this step is completed, you have a mini **Base Language Model** with yourself!
 
-### Step 3: Perform Inference (Predictions)
+### :small_blue_diamond: Step 3: Perform Inference (Predictions)
 
 Since, you have a trained Transformer model now, you can start generating data from it. It's a base language model which is an auto-complete engine. Meaning you provide it with some characters to start with, and it will generate characters moving forward.
 
@@ -97,7 +97,7 @@ If you follow the above steps for Shakespeare text block and run `10,000` traini
 
 > Below I have explained individual modules in detail and demonstrated how they can be understood independently.
 
-## Tokenizer
+## :small_orange_diamond: Tokenizer
 
 <img src="./media/tokenizer-character-level.png" width="600" alt="Alt text description">
 
@@ -142,7 +142,7 @@ print(tokenizer.decode(encoded_value, True))
 >   Hey How are You
 ```
 
-## Dataset processing into Training and Validation sets
+## :small_orange_diamond: Dataset processing into Training and Validation sets
 
 Trainer module can be used to get the train-test split for a provided split value. A split value of `0.9` means `90%` of the data is for training and the rest `10%` for validation.
 
