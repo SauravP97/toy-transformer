@@ -3,6 +3,7 @@
 import torch
 
 from transformer_model import Transformer
+from hugging_face.hf_model import HuggingFaceToyTransformer
 
 
 class Trainer:
@@ -21,6 +22,7 @@ class Trainer:
         max_iterations: int,
         learning_rate: float,
         eval_interval: int,
+        use_hf_version: bool,
     ):
         self.batch_size = batch_size
         self.block_size = block_size
@@ -33,20 +35,33 @@ class Trainer:
         self.train_set = transformed_data[: self.threshold]
         self.validation_set = transformed_data[self.threshold :]
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.transformer_model = Transformer(
-            self.vocab_size,
-            self.embedding_dimension,
-            self.block_size,
-            self.n_head,
-            self.n_layer,
-            self.device,
-        )
+        self.transformer_model = self._get_transformer_model(use_hf_version)
         self.max_iterations = max_iterations
         self.learning_rate = learning_rate
         self.optimizer = torch.optim.AdamW(
             self.transformer_model.parameters(), lr=self.learning_rate
         )
         self.eval_interval = eval_interval
+
+    def _get_transformer_model(self, use_hf_version: bool):
+        if not use_hf_version:
+            return Transformer(
+                self.vocab_size,
+                self.embedding_dimension,
+                self.block_size,
+                self.n_head,
+                self.n_layer,
+                self.device,
+            )
+        else:
+            return HuggingFaceToyTransformer(
+                self.vocab_size,
+                self.embedding_dimension,
+                self.block_size,
+                self.n_head,
+                self.n_layer,
+                self.device,
+            )
 
     def get_train_data(self):
         """Get the Training split."""
@@ -55,6 +70,9 @@ class Trainer:
     def get_validation_data(self):
         """Get the Validation split."""
         return self.validation_set
+    
+    def get_model(self):
+        return self.transformer_model
 
     def _get_batch_of_train_or_test_split(self, split):
         """

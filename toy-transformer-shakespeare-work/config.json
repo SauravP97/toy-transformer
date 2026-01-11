@@ -1,0 +1,8 @@
+{
+  "block_size": 32,
+  "device": "cpu",
+  "embedding_dimension": 64,
+  "n_head": 4,
+  "n_layer": 4,
+  "vocab_size": 65
+}
