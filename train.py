@@ -70,7 +70,7 @@ class Trainer:
     def get_validation_data(self):
         """Get the Validation split."""
         return self.validation_set
-    
+
     def get_model(self):
         return self.transformer_model
 

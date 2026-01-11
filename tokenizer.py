@@ -35,11 +35,25 @@ class Tokenizer:
 
     def encode(self, characters: Union[list[str], str]) -> list[int]:
         """Encode a List of characters or String into Tokenized indices."""
-        return [self.character_to_index[character] for character in characters]
+        return [
+            (
+                self.character_to_index[character]
+                if character in self.character_to_index
+                else -1
+            )
+            for character in characters
+        ]
 
     def decode(self, indices: list[int], stringify=False) -> Union[list[str], str]:
         """Decode the Tokenized indices back to a String or a List of characters."""
-        decoded_list = [self.index_to_character[index] for index in indices]
+        decoded_list = [
+            (
+                self.index_to_character[index]
+                if index in self.index_to_character
+                else "<UNK>"
+            )
+            for index in indices
+        ]
         if stringify:
             return "".join(decoded_list)
         return decoded_list

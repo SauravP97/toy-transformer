@@ -20,7 +20,7 @@ trainer = Trainer(
     max_iterations=10000,
     learning_rate=1e-3,
     eval_interval=500,
-    use_hf_version=True
+    use_hf_version=True,
 )
 
 print(
@@ -43,9 +43,9 @@ end_time = time.perf_counter()
 elapsed_time = end_time - start_time
 print(f"\nExecution time: {elapsed_time:.4f} seconds")
 
-print(f'\n Saving the pre-trained model...')
+print(f"\n Saving the pre-trained model...")
 transformer_model = trainer.get_model()
-transformer_model.save_pretrained('toy-transformer-shakespeare-work')
+transformer_model.save_pretrained("toy-transformer-shakespeare-work")
 
-print(f'Pushing to Hub')
+print(f"Pushing to Hub")
 transformer_model.push_to_hub("SauravP97/toy-transformer-shakespeare-work")
