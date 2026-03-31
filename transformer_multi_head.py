@@ -29,14 +29,18 @@ class MultiHeadAttention(nn.Module):
         # output: (B, T, embedding_dimension)
         self.proj = nn.Linear(embedding_dimension, embedding_dimension)
 
-    def forward(self, x):
+    def forward(self, x, kv_cache_enabled=False):
         # The attention Heads can run in parallel enabling each Head to learn a
         # unique behavior about the Training data.
         # The output of the Heads are concatenated by the last dimension.
         # Each Head outputs the shape -> (B, T, head_size)
         # The Multi Head block will return -> (B, T, head_size * num_heads)
         out = torch.cat(
-            [head(x) for head in self.heads], dim=-1
+            [head(x, kv_cache_enabled=kv_cache_enabled) for head in self.heads], dim=-1
         )  # (B, T, head_size * num_heads)
         out = self.proj(out)  # (B, T, embedding_dimension)
         return out
+
+    def reset_kv_cache(self):
+        for head in self.heads:
+            head.reset_kv_cache()

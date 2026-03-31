@@ -31,8 +31,11 @@ class HuggingFaceToyTransformer(
             device,
         )
 
-    def forward(self, x, target=None):
-        return self.transformer(x, target)
+    def forward(self, x, target=None, kv_cache_enabled=False):
+        return self.transformer(x, target, kv_cache_enabled=kv_cache_enabled)
 
     def generate(self, start_token, max_new_tokens=1000):
         return self.transformer.generate(start_token, max_new_tokens)
+
+    def generate_with_kv_cache_enabled(self, start_token, max_new_tokens=1000):
+        return self.transformer.generate_with_kv_cache_enabled(start_token, max_new_tokens)

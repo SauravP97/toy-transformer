@@ -33,7 +33,8 @@ training_loss, validation_loss = trainer.execute_training_loop()
 print(f"\nFinal Training Loss: {training_loss}")
 print(f"Final Validation Loss: {validation_loss}")
 
-predicted_tokens = trainer.generate(2000)
+inference_start_time = time.perf_counter()
+predicted_tokens = trainer.generate(2000, kv_cache_enabled=True)
 predicted_text = tokenizer.decode(predicted_tokens, stringify=True)
 
 print("\nPredictions:")
@@ -41,11 +42,16 @@ print(predicted_text)
 
 end_time = time.perf_counter()
 elapsed_time = end_time - start_time
+inference_elapsed_time = end_time - inference_start_time
+
 print(f"\nExecution time: {elapsed_time:.4f} seconds")
+print(f"\nInference time: {inference_elapsed_time:.4f} seconds")
 
-print(f"\n Saving the pre-trained model...")
-transformer_model = trainer.get_model()
-transformer_model.save_pretrained("toy-transformer-shakespeare-work")
+# Uncomment below lines to Save the Pre-trained model locally.
+# print(f"\n Saving the pre-trained model...")
+# transformer_model = trainer.get_model()
+# transformer_model.save_pretrained("toy-transformer-shakespeare-work")
 
-print(f"Pushing to Hub")
-transformer_model.push_to_hub("SauravP97/toy-transformer-shakespeare-work")
+# Uncomment below lines to push the pre-trained model to hugging-face.
+# print(f"Pushing to Hub")
+# transformer_model.push_to_hub("SauravP97/toy-transformer-shakespeare-work")

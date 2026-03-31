@@ -179,3 +179,18 @@ print(f'Target: {[tokenizer.decode(y, stringify=True) for y in yb.numpy()]}')
 >   Input : ['heek,\nDa', 'w is sha', 'od maste']
 >   Target: ['eek,\nDas', ' is shar', 'd master']
 ```
+
+## :small_orange_diamond: [March 2026] Added KV-Cache implementation
+
+KV cache (Key-Value cache) is a crucial inference optimization for Large Language Models (LLMs) that stores intermediate attention data—specifically the Key (`K`) and Value (`V`) tensors—for previous tokens. By reusing these computations instead of recomputing them at each step, KV caching reduces computational complexity from quadratic to linear, enabling significantly faster, real-time generation and reduced latency.
+
+Read more here: https://huggingface.co/blog/not-lain/kv-caching
+
+### Performance Comparison
+
+The performance comparison was done on the Shakespeare dataset. `2000` tokens were generated.
+
+1. Inference time without KV Cache: 3.2322 seconds
+2. Inference time with KV Cache: 2.5820 seconds
+
+Inference time reduced by `20.12%` :rocket:
